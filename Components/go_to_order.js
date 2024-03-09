@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProducts, incrementQty,decrementQty } from './ProductReducer';
 import { addToCart, incrementQuantity, decrementQuantity } from './CartReducer';
 import { useNavigation } from '@react-navigation/native';
+import { Entypo } from '@expo/vector-icons';
+
 
 const Go_To_Order = () => {
 
@@ -83,22 +85,20 @@ const Go_To_Order = () => {
             height: "10%",
         }
           }>
-            <View>
-            <Text style = {{
-              fontSize: 17,
-              color: "white",
-              fontWeight: "800"
+            <View style = {{
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection:"row"
             }}>
-            {
-              cart.length
-            } types | ${total}.00
-            </Text>
+              <Entypo name="shopping-cart" size={24} color="black" style = {{marginRight:5,}}/> 
+              <Text style = {{
+                fontSize: 17,
+                color: "white",
+                fontWeight: "800"
+              }}>
+                | ${total}.00
+              </Text>
 
-            <Text style = {{
-              color: "white"
-            }}>
-              Extra Charges may apply
-            </Text>
             </View>
 
           <Pressable onPress={()=>{

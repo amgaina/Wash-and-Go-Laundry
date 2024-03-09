@@ -21,11 +21,11 @@ const styles_bag = StyleSheet.create({
         color: "white",
         fontSize:30,
         textAlign: "center",
-        padding: 10,
+        paddingTop: 10,
     },
     go_to_cart:{
         backgroundColor: "red",
-        height: 70,
+        height: 60,
         width: "80%",
         alignContent:"center",
         alignSelf:"center",
