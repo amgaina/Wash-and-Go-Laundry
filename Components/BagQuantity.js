@@ -12,11 +12,28 @@ function BagQuantity() {
                             <Text style = {[styles_bag.go_to_order]}> Let's Make Order </Text>
                         </TouchableOpacity>
             </View>
+            <View style = {styles_bag.home_footer}>
+                        <TouchableOpacity onPress={()=> navigation.navigate("Services")}>
+                            <Text style = {[styles_bag.home_footer]}> Services </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={()=> navigation.navigate("How_it_works")}>
+                            <Text style = {[styles_bag.home_footer]}> How it works </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={()=> navigation.navigate("Pricing")}>
+                            <Text style = {[styles_bag.home_footer]}> Pricing </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={()=> navigation.navigate("FAQs")}>
+                            <Text style = {[styles_bag.home_footer]}> FAQs </Text>
+                        </TouchableOpacity>
+            </View>
+
+
     </View>
   )
 }
 
 const styles_bag = StyleSheet.create({
+
     go_to_order:{
         color: "white",
         fontSize:30,
@@ -30,7 +47,22 @@ const styles_bag = StyleSheet.create({
         alignContent:"center",
         alignSelf:"center",
         marginTop:40,
+        borderRadius: 10,
     
+    },
+    home_footer:{
+        color: "#682835",
+        backgroundColor: "white",
+        padding: 10,
+        marginTop: 5,
+        paddingTop: 5,
+        paddingBottom: 10,
+        fontSize: 18,
+        width: "100%",
+        justifyContent: "center",
+        alignSelf:"center",
+        flexDirection: "row",
+        borderRadius: 10,
     }
 })
 export default BagQuantity;
