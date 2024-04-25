@@ -6,7 +6,7 @@ import { AntDesign } from '@expo/vector-icons';
 import Services from '../Components/Services';
 import BagQuantity from "../Components/BagQuantity";
 
-// HomeScreen for our Application
+// HomeScreen for the Application
 
 const HomeScreen = () => {
     const [displayCurrentAddress, setDisplayCurrentAddress] = useState("We are loading your location...");
@@ -71,7 +71,7 @@ const HomeScreen = () => {
         <Entypo name="location-pin" size={30} color="red" />  
         <View>
             <Text style = {{fontSize: 18, fontWeight: "600"}}> Home </Text>
-            <Text>
+            <Text style = {{fontWeight: "500"}}>
                 {displayCurrentAddress}
             </Text>
         </View>
