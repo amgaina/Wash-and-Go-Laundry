@@ -24,7 +24,7 @@ const styles_bag = StyleSheet.create({
         paddingTop: 10,
     },
     go_to_cart:{
-        backgroundColor: "red",
+        backgroundColor: "#682835",
         height: 60,
         width: "80%",
         alignContent:"center",

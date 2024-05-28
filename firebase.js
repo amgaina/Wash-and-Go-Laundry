@@ -1,16 +1,26 @@
 import { initializeApp } from "firebase/app";
+import { initializeAuth, getReactNativePersistence } from "firebase/auth";
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCnksobuxv2omhd9U1hfzy9FexZWisRYs8",
-    authDomain: "laundryapp-d34c9.firebaseapp.com",
-    projectId: "laundryapp-d34c9",
-    storageBucket: "laundryapp-d34c9.appspot.com",
-    messagingSenderId: "79514806929",
-    appId: "1:79514806929:web:6b38ee8fc9ec325236ed30",
+  apiKey: "AIzaSyDyXbafVYJhwASlpda6-euqOLYMsz4gaNk",
+  authDomain: "wash-and-go-5fc6f.firebaseapp.com",
+  projectId: "wash-and-go-5fc6f",
+  storageBucket: "wash-and-go-5fc6f.appspot.com",
+  messagingSenderId: "625238359559",
+  appId: "1:625238359559:web:7b18396ebe2fe9989874a2",
 };
+
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore();
+
+// Initialize Firebase Auth with React Native persistence
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage)
+});
+
+// Initialize Firestore
+const db = getFirestore(app);
+
 export { auth, db };

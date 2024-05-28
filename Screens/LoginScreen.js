@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   Pressable,
+  Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -15,6 +16,7 @@ import { auth } from "../firebase";
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigation = useNavigation();
 
   const handleEmail = (newEmail) => {
     setEmail(newEmail);
@@ -33,13 +35,14 @@ const LoginScreen = () => {
   }, []);
 
   const login = () => {
-    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-      console.log(userCredential);
-      const user = userCredential.user;
-      console.log("User Details: ", user);
-    });
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+      })
+      .catch((err) => {
+        Alert.alert("The email or password is incorrect.");
+      });
   };
-  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <KeyboardAvoidingView contentContainerStyle={styles4.scrollViewContent}>
@@ -93,12 +96,11 @@ const LoginScreen = () => {
           </Text>
         </Pressable>
       </View>
-
-      <View style={styles4.button}>
-        <Pressable onPress={login}>
+      <Pressable onPress={login}>
+        <View style={styles4.button}>
           <Text style={{ color: "white", fontSize: 20 }}> Login </Text>
-        </Pressable>
-      </View>
+        </View>
+      </Pressable>
     </SafeAreaView>
   );
 };
@@ -121,12 +123,13 @@ const styles4 = StyleSheet.create({
     justifyContent: "center",
   },
   text1: {
-    color: "brown",
+    color: "#682835",
     marginTop: 20,
   },
+
   button: {
     marginTop: 20,
-    backgroundColor: "red",
+    backgroundColor: "#682835",
     borderColor: "black",
     padding: 20,
     alignItems: "center",
