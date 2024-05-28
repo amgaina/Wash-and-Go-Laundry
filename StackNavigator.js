@@ -8,6 +8,8 @@ import Go_To_Order from "./Components/go_to_order";
 import PickUpScreen from "./Screens/PickUpScreen";
 import Register from "./Screens/Register";
 import GetStarted from "./Screens/GetStarted";
+import Finalize from "./Screens/Finalize";
+import FinalScreen from "./Screens/FinalScreen.js";
 
 StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -23,7 +25,7 @@ StackNavigator = () => {
         <Stack.Screen
           name="Login"
           component={LoginScreen}
-          options={{headerBackVisible: false}}
+          options={{ headerBackVisible: false }}
         />
         <Stack.Screen
           name="Home"
@@ -40,7 +42,21 @@ StackNavigator = () => {
           component={PickUpScreen}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Register" component={Register} options= {{headerBackVisible: false}} />
+        <Stack.Screen
+          name="Register"
+          component={Register}
+          options={{ headerBackVisible: false }}
+        />
+        <Stack.Screen
+          name="Finalize"
+          component={Finalize}
+          options={{ headerBackVisible: false }}
+        />
+        <Stack.Screen
+          name="FinalScreen"
+          component={FinalScreen}
+          options={{ headerBackVisible: false, headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

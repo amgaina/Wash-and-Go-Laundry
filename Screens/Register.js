@@ -71,17 +71,15 @@ const Register = () => {
         [
           {
             text: "Cancel",
-            onPress: () => console.log("Cancel Pressed"),
             style: "cancel",
           },
-          { text: "OK", onPress: () => console.log("OK Pressed") },
+          { text: "OK"},
         ]
       );
       return;
     }
     createUserWithEmailAndPassword(auth, form.email, form.password)
-      .then((userCredential) => {
-        console.log("User Credential: ", userCredential);
+      .then((userCredential) => { 
         const user = userCredential._tokenResponse.email;
         const myUserUid = auth.currentUser.uid;
 
@@ -219,13 +217,13 @@ const styles3 = StyleSheet.create({
   },
   button: {
     marginTop: 20,
-    backgroundColor: "red",
+    backgroundColor: "#682835",
     borderColor: "black",
     padding: 20,
     alignItems: "center",
   },
   link: {
-    color: "brown",
+    color: "#682835",
   },
 });
 export default Register;
